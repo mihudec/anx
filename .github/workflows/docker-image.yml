@@ -10,7 +10,7 @@ on:
 
 jobs:
 
-  build:
+  buildx:
 
     runs-on: ubuntu-latest
 
@@ -29,4 +29,5 @@ jobs:
         docker build --file Dockerfile \
           --push \
           --platform linux/amd64 \
-          --tag "${{ env.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:${{ github.ref_name }}"
+          --tag "${{ env.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:${{ github.ref_name }}" \
+          .
